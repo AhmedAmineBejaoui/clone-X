@@ -62,7 +62,10 @@ const PostInput = ({ onPost }) => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) setImage(URL.createObjectURL(file));
+              }}
               className="hidden"
             />
           </label>
@@ -73,7 +76,10 @@ const PostInput = ({ onPost }) => {
             <input
               type="file"
               accept="video/*"
-              onChange={(e) => setVideo(URL.createObjectURL(e.target.files[0]))}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) setVideo(URL.createObjectURL(file));
+              }}
               className="hidden"
             />
           </label>
