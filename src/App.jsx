@@ -65,7 +65,10 @@ const App = () => {
 
   // Fonction pour ajouter un nouveau tweet
   const handleNewPost = (newTweet) => {
-    setTweets([{ ...newTweet, id: Date.now(), likes: 0, comments: [], reposts: 0 }, ...tweets]);
+    setTweets((previousTweets) => [
+      { ...newTweet, id: Date.now(), likes: 0, comments: [], reposts: 0 },
+      ...previousTweets,
+    ]);
   };
 
   const [activeTab, setActiveTab] = useState("For You");
